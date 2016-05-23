@@ -6,7 +6,7 @@ output: html_document
 ---
 ### Code for reading in the dataset and/or processing the data
 ```{r echo = TRUE}
-library(readr) ; library(ggplot2) ; library(plyr) ; library(lattice)
+library(readr) ; library(ggplot2) ; library(plyr) ; library(lattice) ; library(knitr)
 # Project Code: Section 1
 # Getting/organizing the data
 fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
@@ -122,10 +122,16 @@ xyplot(Avg ~ interval|DayCategory, data = interData2, type = "l",  layout = c(1,
        main="Avg Steps per Interval Based on Type of Day", 
        ylab="Avg Number of Steps", xlab = "Interval")
 ```
+<br>
+### ANSWER:
+ Step activity trends appear different based on if the day occurs on a weekend or weekday. 
+ This is partly due to people having an increasing activity level, greater than normal work
+ hours for those who work during the week.
+<br>
+<br>
 
 ### All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
-```{r ProjectCode, echo = TRUE}
-
+```{r }
+mySourceCode <- read_lines('c:/Reproducible Research Project 1/ProjectCode.R')
+mySourceCode
 ```
-
-

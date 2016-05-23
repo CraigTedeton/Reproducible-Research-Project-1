@@ -1,5 +1,5 @@
-library(readr) ; library(ggplot2) ; library(plyr) ; library(lattice)
-# Project Code: Section 1
+
+library(readr) ; library(ggplot2) ; library(plyr) ; library(lattice) ; library(knitr)
 # Getting/organizing the data
 fileUrl <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 download.file(fileUrl, "./data/repdata%2Fdata%2Factivity.zip")
@@ -30,7 +30,6 @@ hist(sumData$Steps, breaks = 5, xlab = "Steps", main = "Total Steps per Day")
 
 ## Mean of Steps
 as.integer(mean(sumData$Steps))
-
 ## Median of Steps
 as.integer(median(sumData$Steps))
 
@@ -82,10 +81,8 @@ hist(sumData$Steps, breaks = 5, xlab = "Steps",
      main = "Total Steps per Day with NAs Fixed", col = "Dark Grey", add = T)
 legend("topleft", c("Imputed Data", "Non-NA Data"), fill = c("Blue", "Dark Grey") )
 
-
 ## Create new category based on the days of the week
 mergedData$DayCategory <- ifelse(mergedData$day %in% c("Saturday", "Sunday"), "Weekend", "Weekday")
-
 
 ## Summarize data by interval and type of day
 interData2 <- ddply(mergedData, .(interval, DayCategory), summarize, Avg = mean(steps))
